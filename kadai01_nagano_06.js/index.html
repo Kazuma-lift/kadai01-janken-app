@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Learning Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">JavaScript Learning Lab</h1>
+  </header>
+<!-- ここからAPPの記述 -->
+  <main class="layout">
+    <section class="panel panel-app" aria-label="APP">
+      <h2 class="panel-title">APP</h2>
+      <p class="level-label">LEVEL 1</p>
+      <h3 class="app-name">じゃんけん</h3>
+      <p class="app-subtitle">変数・条件分岐・関数・イベント処理の基本を学ぼう</p>
+      <p class="panel-lead">あなたの手を選んでください。</p>
+
+      <div class="hand-list">
+        <button type="button" class="hand-button" data-hand="グー" aria-pressed="false">グー</button>
+        <button type="button" class="hand-button" data-hand="チョキ" aria-pressed="false">チョキ</button>
+        <button type="button" class="hand-button" data-hand="パー" aria-pressed="false">パー</button>
+      </div>
+
+      <div class="match">
+        <div class="match-card">
+          <p class="match-label">あなた</p>
+          <p class="match-value player-hand">—</p>
+        </div>
+        <div class="match-card">
+          <p class="match-label">CPU</p>
+          <p class="match-value cpu-hand">—</p>
+        </div>
+      </div>
+      <p class="judgment">判定 <span class="judgment-value" aria-live="polite">—</span></p>
+
+      <div class="score-board">
+        <p class="score-item"><span class="score-label">勝ち</span> <span class="score-win">0</span></p>
+        <p class="score-item"><span class="score-label">負け</span> <span class="score-lose">0</span></p>
+        <p class="score-item"><span class="score-label">引き分け</span> <span class="score-draw">0</span></p>
+      </div>
+      <button type="button" class="text-button score-reset">スコアをリセット</button>
+    </section>
+<!-- ここからJS LOGの記述 -->
+    <section class="panel panel-log" aria-label="JS LOG">
+      <h2 class="panel-title">JS LOG</h2>
+
+      <section class="log-block code-catalog" aria-label="JavaScriptコード一覧">
+        <h3 class="section-label">使用しているJavaScriptコード一覧</h3>
+        <div class="catalog-body">
+          <div class="catalog-list"></div>
+          <div class="catalog-detail"></div>
+        </div>
+      </section>
+
+      <section class="log-block log-block-code">
+        <h3 class="section-label">実行コード</h3>
+        <pre class="code-view"></pre>
+      </section>
+
+      <section class="log-block">
+        <h3 class="section-label">
+          <button type="button" class="fold-toggle" aria-expanded="true" aria-controls="var-list">
+            <span>変数</span>
+            <span class="fold-close">閉じる</span>
+            <span class="fold-open">開く</span>
+          </button>
+        </h3>
+        <div class="var-list" id="var-list"></div>
+      </section>
+
+      <section class="log-block log-block-history is-folded">
+        <div class="section-head">
+          <h3 class="section-label">
+            <button type="button" class="fold-toggle" aria-expanded="false" aria-controls="log-list">
+              <span>実行ログ</span>
+            </button>
+          </h3>
+          <button type="button" class="text-button log-clear">ログをクリア</button>
+          <button type="button" class="fold-toggle fold-action" aria-expanded="false" aria-controls="log-list">
+            <span class="fold-close">閉じる</span>
+            <span class="fold-open">開く</span>
+          </button>
+        </div>
+        <div class="playback-controls" role="group" aria-label="再生操作">
+          <button type="button" class="text-button playback-first" disabled>最初に戻る</button>
+          <button type="button" class="text-button playback-back" disabled>1つ戻る</button>
+          <button type="button" class="text-button playback-play" disabled>再生</button>
+          <button type="button" class="text-button playback-pause">一時停止</button>
+          <button type="button" class="text-button playback-forward" disabled>1つ進む</button>
+          <button type="button" class="text-button playback-last" disabled>最後まで進む</button>
+        </div>
+        <ol class="log-list" id="log-list"></ol>
+      </section>
+
+      <section class="log-block">
+        <h3 class="section-label">処理の解説</h3>
+        <p class="explain-title"></p>
+        <p class="explain-body"></p>
+        <p class="explain-label">なぜ必要か</p>
+        <p class="explain-why"></p>
+      </section>
+    </section>
+  </main>
+
+  <!-- jQueryは先に読み込ませる。26.11時点でver4.0.0があるけど、講義時に引用したバージョンをそのまま使用する。 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/code-catalog.js"></script>
+</body>
+</html>
