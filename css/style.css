@@ -18,6 +18,19 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 }
 
+/* ==================================================
+   ②【21〜23行目】box-sizing: border-box;
+   ==================================================
+   要素の幅や高さに、padding（内側の余白）と
+   border（枠線）を含めて計算する指定です。
+
+   例えば width: 200px; padding: 20px; の場合、
+   border-box なら全体の幅は200pxに収まります。
+
+   レイアウトの計算を分かりやすくするために、
+   * セレクタですべての要素に適用しています。
+*/
+
 * {
   box-sizing: border-box;
 }
